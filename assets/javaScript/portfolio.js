@@ -56,11 +56,47 @@ function scrollTop(){
 window.addEventListener('scroll', scrollTop)
 
 /*===== MIXITUP FILTER PORTFOLIO =====*/ 
+const mixer = mixitup('.portfolio__container', {
+    selectors: {
+        target: '.portfolio__content'
+    },
+    animation: {
+        duration: 400
+    }
+});
 
 /* Link active portfolio */ 
+const linkPortfolio = document.querySelectorAll('.portfolio__item')
+
+function activePortfolio(){
+    if(linkPortfolio){
+        linkPortfolio.forEach(L => L.classList.remove('active-portfolio'))
+        this.classList.add('active-portfolio')
+        console.log(this)
+    }
+}
+
+linkPortfolio.forEach(L => L.addEventListener('click',activePortfolio))
 
 
 /*===== SWIPER CAROUSEL =====*/ 
-
+const mySwiper = new Swiper('.testimonial__container', {
+    spaceBetween: 16,
+    loop: true,
+    grabCursor: true,
+      
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints:{
+        640:{
+            slidesPerView:2,
+        },
+        1024:{
+            slidesPerView:3,
+        },
+    }
+});
 
 /*===== GSAP ANIMATION =====*/ 
